@@ -23,9 +23,148 @@
     right:50px;
 }
 
+.nav-bar{
+   position:relative;
+}
+
+
+.popup-container{
+     position: fixed; 
+ top: 50%; 
+  left: 47%; 
+  transform: translate(-50%, -50%); 
+  display: none; 
+  
+  width: 450px; 
+  height: 500px; 
+ background-color:white;
+ border-radius:20px;
+ 
+ 
+ 
+}
+.popup-container img{
+  
+  width: 450px; 
+  height: 300px;
+  border-radius:20px 20px 0 0;
+
+}
+
+body.no-scroll {
+  overflow: hidden; 
+ 
+  background-color:#F4EEEE;
+  
+}
+
+.description.no-scroll{
+   background-color:#F4EEEE;
+}
+
+
+
+#add-cart-item-btn{
+    
+    
+	bottom: 20px;
+	width: 120px;
+	color: green;
+	background-color: white;
+	border: 2px solid green ;
+	padding: 10px 20px;
+	margin-left:-90%;
+	margin-top:8%;
+
+}
+
+.desc-popup{
+width: 400px;
+    height: 43px;
+	margin-top: 50px;
+	color: grey;
+	overflow: hidden;
+	font-size: 13px;
+	
+
+}
+#item-popup{
+border:none;
+
+}
+
+
+.cross{
+  
+   width:35px;
+   height:35px;
+   position:absolute;
+   background-color:white;
+   left:90%;
+   top:3%;
+   border-radius:20px;
+   font-size:17px;
+   padding-bottom:30px;
+   
+
+}
+
+.inc-dec-item{
+   
+   display:none;
+     gap:15px;
+     
+   position: relative;
+    left:25%;
+   top:-27px;
+    
+	
+	width: 80px;
+	margin:0;
+	color: green;
+	background-color: white;
+	border: 2px solid green ;
+	padding: 5px 10px;
+	
+
+}
+
+.inc-dec-item button{
+   position:initial;
+   background-color:white;
+   padding:0;
+   margin:0;
+   border:none;
+   font-size:15px;
+   
+   
+}
+
+
+#cart-items-number{
+   
+  background-color: yellow;
+  padding:0 2px;
+  position:absolute;
+    top:28px;
+    right:11px;
+    font-size:12px;
+    border-radius:10px;
+    width:27px;
+    height:20px;
+    text-align:center;
+
+}
+
+
+
+
+
+
 </style>
+<script src="restaurant-menu-add-cart.js"></script>
 </head>
-<body>
+<body >
 <div class="hidden">
 
    <%!Restaurant res=null; 
@@ -79,6 +218,12 @@
    	    <div class="username">
              
              <p><%= (String)session.getAttribute("username") %></p>
+
+       </div>
+       
+       <div id="cart-items-number">
+             
+             <p>0</p>
 
        </div>
    	     
@@ -144,7 +289,7 @@
          	
          	<% for(Menu item:menu){%>
          	
-              <div class="item">
+              <div class="item" data-item-name="<%=item.getItemName() %>">
 
               	<div class="details">
               		<h4><%=item.getItemName() %></h4>
@@ -157,13 +302,52 @@
               	<div class="image-cart">
               		
                     <img src="chicken.avif">
-                    <button>ADD</button>
+                    <button id="add-btn" data-name="<%=item.getItemName()%>" data-price="<%=(int)item.getPrice() %>" data-description="<%= item.getDescription() %>" data-image=""  onclick="addbtnaction(this)">ADD</button>
+                    <div class="inc-dec-item">
+            
+                    <button id="decrement" onclick="decItems(this)" >-</button>
+                     <p id="item-count">1</p>
+                     <button id="increment" onclick="incItems(this)" >+</button>
+            
+                     </div>
               	</div>
 
-
-              	
+            
 
               </div>
+              
+              <div class="popup-container" >
+                  
+                 <button class="cross" onclick="removePopup()">x</button>
+           
+                 <img src="add-cart-image.avif">
+                 
+                 <div class="item" id="item-popup">
+
+              	<div class="details">
+              		<h4 id="popup-item-name"></h4>
+              	<p id="popup-item-price"></p>
+
+              	<p class="desc-popup" id="popup-item-description"></p>
+
+              	</div>
+
+              	<div>
+              		
+                    
+                     <button id="add-cart-item-btn"  onclick="addToCart()">ADD ITEM</button>
+                    
+              	</div>
+
+            
+
+              </div>
+                 
+                
+        
+            </div>
+            
+            
               
               <%} %>
 
@@ -175,6 +359,11 @@
 
 
    </section>
+   
+   
+    
+ 
+   
     
     
     

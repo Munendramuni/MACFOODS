@@ -56,6 +56,21 @@ margin-left:-5px;
 	color:black;
 }
 
+  #cart-items-number{
+   
+  background-color: yellow;
+  padding:0 2px;
+  position:absolute;
+    top:28px;
+    right:11px;
+    font-size:12px;
+    border-radius:10px;
+    width:27px;
+    height:20px;
+    text-align:center;
+
+}
+
 </style>
 
 <script src="restaurant-script.js"></script>
@@ -148,6 +163,12 @@ margin-left:-5px;
    	    <div class="username">
              
              <p><%= (String)session.getAttribute("username") %></p>
+
+       </div>
+       
+       <div id="cart-items-number">
+             
+             <p>0</p>
 
        </div>
    	     
