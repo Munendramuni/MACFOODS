@@ -150,7 +150,11 @@
     font-size:10px;
  }
 
-
+.nav-icons img{
+   
+   margin-right:50px;
+   
+}
 
 </style>
        
@@ -211,7 +215,8 @@
    	  	
    	  	<a href="deals.html" target="_self">Help</a>
    	  	
-   	  	<a href="deals.html" target="_self">Orders</a>
+   	  	<a href="homepage.jsp" target="_self">Home</a>
+   	  	
 
    	    </div>
    	    
@@ -226,8 +231,8 @@
    	  <%}else{%> 
    		  
    		<div class="nav-links">
-   	  	<a href="fashion.html" target="_self">Offers</a>
-   	  	<a href="deals.html" target="_self">Help</a>
+   	  	<a href="offers.html" target="_self">Offers</a>
+   	  	<a href="help.html" target="_self">Help</a>
    	  	<a href="login.html" target="_self">Login</a>
    	  	<a href="registration.html" target="_self">Signup</a>
    	  	</div>

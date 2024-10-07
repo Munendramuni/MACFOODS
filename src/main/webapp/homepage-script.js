@@ -15,6 +15,7 @@ function getCity(){
 }
 
 
+
 function getSelectedOption(){
 	var selectedCity=localStorage.getItem("selectedCity");
 	
@@ -31,6 +32,10 @@ function setSelectedValue(selectObj, valueToSet) {
         }
     }
 }
+
+
+
+
 
 
  

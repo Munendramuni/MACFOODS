@@ -183,6 +183,14 @@ margin:50px auto;
 
 
 </style>
+
+  <script type="text/javascript">
+       function  userLogout(){    
+     
+    	   window.location.href="Logout";
+          
+       }
+      </script> 
 <script src="restaurant-menu-add-cart.js"></script>
 </head>
 <body >
@@ -229,10 +237,11 @@ margin:50px auto;
    	  { %>
    	     
    	    <div class="nav-links">
-   	  	<a href="fashion.html" target="_self">Offers</a>
-   	  	<a href="deals.html" target="_self">Help</a>
+   	  	<a href="offers.html" target="_self">Offers</a>
+   	  	<a href="help.html" target="_self">Help</a>
    	  	<a href="restaurants.jsp" target="_self">Restaurants</a>
-   	  	<a href="deals.html" target="_self">Orders</a>
+   	  	<a href="orders.jsp" target="_self">Orders</a>
+   	  	<a onclick="userLogout()">Logout</a>
 
    	    </div>
    	    
@@ -251,8 +260,8 @@ margin:50px auto;
    	  <%}else{%> 
    		  
    		<div class="nav-links">
-   	  	<a href="fashion.html" target="_self">Offers</a>
-   	  	<a href="deals.html" target="_self">Help</a>
+   	  	<a href="offers.html" target="_self">Offers</a>
+   	  	<a href="help.html" target="_self">Help</a>
    	  	<a href="login.html" target="_self">Login</a>
    	  	<a href="registration.html" target="_self">Signup</a>
    	  	</div>

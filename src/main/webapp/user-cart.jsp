@@ -169,6 +169,15 @@
 
 }
 
+
+.nav-icons img{
+   
+   margin-right:50px;
+   
+}
+
+
+
 </style>
        
 </head>
@@ -213,7 +222,8 @@
    	  	
    	  	<a href="deals.html" target="_self">Help</a>
    	  	
-   	  	<a href="deals.html" target="_self">Orders</a>
+   	  	<a href="orders.jsp" target="_self">Orders</a>
+   	  	<a href="homepage.jsp" target="_self">Home</a>
 
    	    </div>
    	    
@@ -433,13 +443,14 @@
    
                  <%}else{%>
                        
-                       //userlogin but not have any items in cart
-                 
+                  <center><h1 >You Have No Items In Your Cart</h1>
+                      <h1 ><a href="restaurants.jsp" style="color:green">Click here</a> to add items</h1></center>
+                       
                     <% }%> 
    
    <%}else{%>
       
-       //user not login 
+       <%response.sendRedirect("login.html"); %> 
    
     
  <% }%> 

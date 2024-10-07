@@ -73,6 +73,14 @@ margin-left:-5px;
 
 </style>
 
+  <script type="text/javascript">
+       function  userLogout(){    
+     
+    	   window.location.href="Logout";
+          
+       }
+      </script> 
+
 <script src="restaurant-script.js"></script>
 
 </head>
@@ -153,10 +161,11 @@ margin-left:-5px;
    	  { %>
    	     
    	    <div class="nav-links">
-   	  	<a href="fashion.html" target="_self">Offers</a>
-   	  	<a href="deals.html" target="_self">Help</a>
+   	  	<a href="offers.html" target="_self">Offers</a>
+   	  	<a href="help.html" target="_self">Help</a>
    	  	<a href="restaurants.jsp" target="_self">Restaurants</a>
-   	  	<a href="deals.html" target="_self">Orders</a>
+   	  	<a href="orders.jsp" target="_self">Orders</a>
+   	  	 <a onclick="userLogout()">Logout</a>
 
    	    </div>
    	    
@@ -175,8 +184,8 @@ margin-left:-5px;
    	  <%}else{%> 
    		  
    		<div class="nav-links">
-   	  	<a href="fashion.html" target="_self">Offers</a>
-   	  	<a href="deals.html" target="_self">Help</a>
+   	  	<a href="offers.html" target="_self">Offers</a>
+   	  	<a href="help.html" target="_self">Help</a>
    	  	<a href="login.html" target="_self">Login</a>
    	  	<a href="registration.html" target="_self">Signup</a>
    	  	</div>
@@ -186,7 +195,7 @@ margin-left:-5px;
    	  <div class="nav-icons">
    	  	
    	  	<img src="profile-icon.png">
-   	  	<img src="cart-icon.png">
+   	  	<a href="user-cart.jsp"><img src="cart-icon.png"></a>
 
    	  </div>
    	 
