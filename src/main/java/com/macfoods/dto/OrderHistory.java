@@ -6,25 +6,71 @@ public class OrderHistory {
 	private int userId;
 	private int orderId;
 	private Float total;
-	private String status;
+	private String date;
+	private int restId;
+	private int totalQuantity;
 	
-	
-	public OrderHistory(int orderHistoryId, int userId, int orderId, Float total, String status) {
+	public OrderHistory(int orderHistoryId, int userId, int orderId, Float total, int restId,int totalQuantity) {
 		super();
 		this.orderHistoryId = orderHistoryId;
 		this.userId = userId;
 		this.orderId = orderId;
 		this.total = total;
-		this.status = status;
+		
+		this.restId=restId;
+		this.totalQuantity=totalQuantity;
 	}
 
 
-	public OrderHistory(int userId, int orderId, Float total, String status) {
+	public OrderHistory(int userId, int orderId, Float total,int restId,int totalQuantity) {
 		super();
 		this.userId = userId;
 		this.orderId = orderId;
 		this.total = total;
-		this.status = status;
+		
+		this.restId=restId;
+		this.totalQuantity=totalQuantity;
+	}
+	
+	public OrderHistory(int userId, int orderId,String date, Float total,int restId,int totalQuantity) {
+		super();
+		this.userId = userId;
+		this.orderId = orderId;
+		this.date=date;
+		this.total = total;
+		
+		this.restId=restId;
+		this.totalQuantity=totalQuantity;
+	}
+
+
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+	public int getTotalQuantity() {
+		return totalQuantity;
+	}
+
+
+	public void setTotalQuantity(int totalQuantity) {
+		this.totalQuantity = totalQuantity;
+	}
+
+
+	public int getRestId() {
+		return restId;
+	}
+
+
+	public void setRestId(int restId) {
+		this.restId = restId;
 	}
 
 
@@ -73,21 +119,10 @@ public class OrderHistory {
 	}
 
 
-	public String getStatus() {
-		return status;
-	}
+	
 
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-
-	@Override
-	public String toString() {
-		return orderHistoryId+" "+userId+" "+orderId+" "+
-	             total+" "+status;
-	}
+	
 	
 	
 }

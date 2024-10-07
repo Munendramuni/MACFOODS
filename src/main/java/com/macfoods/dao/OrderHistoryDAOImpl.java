@@ -16,13 +16,15 @@ public class OrderHistoryDAOImpl implements OrderHistoryDAO {
 		try {
 			
 			  PreparedStatement pstmt=ConnectorFactory.requestConnection()
-			  .prepareStatement("insert into order_history (user_id,order_id,total,status)"
-					 	+ " values (?,?,?,?)");
+			  .prepareStatement("insert into order_history (user_id,order_id,total,rest_id,totalquantity)"
+					 	+ " values (?,?,?,?,?)");
 			  
 			  pstmt.setInt(1, oh.getUserId());
 			  pstmt.setInt(2, oh.getOrderId());
 			  pstmt.setFloat(3, oh.getTotal());
-			  pstmt.setString(4, oh.getStatus());
+			 
+			  pstmt.setInt(4, oh.getRestId());
+			  pstmt.setInt(5, oh.getTotalQuantity());
 			  
 			 return pstmt.executeUpdate();
 		} 
@@ -55,9 +57,9 @@ List<OrderHistory> al=new ArrayList<OrderHistory>();
 		  
 			OrderHistory oh=new OrderHistory(res.getInt(1),
 					res.getInt(2),
-					res.getInt(3),
-					res.getFloat(5),
-					res.getString(6));
+					res.getString(3),
+					res.getFloat(4),
+				res.getInt(6),res.getInt(7));
 			
 			al.add(oh);
 			

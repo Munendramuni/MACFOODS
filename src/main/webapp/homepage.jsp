@@ -164,7 +164,7 @@ margin-left:-5px;
    	  	<a href="fashion.html" target="_self">Offers</a>
    	  	<a href="deals.html" target="_self">Help</a>
    	  	<a href="restaurants.jsp" target="_self">Restaurants</a>
-   	  	<a href="deals.html" target="_self">Orders</a>
+   	  	<a href="orders.jsp" target="_self">Orders</a>
 
    	    </div>
    	    

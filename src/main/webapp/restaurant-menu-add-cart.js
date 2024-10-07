@@ -3,6 +3,9 @@
  */
 let itemCounts={};
 let totalCartCount=0;
+let itemNameArray={};
+var queryString=null;
+var queryStringCount=null;
  function addbtnaction(button){
 	const itemName = button.getAttribute('data-name');
 	document.getElementById('popup-item-name').textContent = itemName;
@@ -28,10 +31,22 @@ let totalCartCount=0;
 	      
 	       
 	       const itemName = document.getElementById('popup-item-name').textContent;
+	       
 	       if(!itemCounts[itemName]){
 			   
+			   itemNameArray[itemName]=itemName;
+			   
 			   itemCounts[itemName]=1;
+		        
+		        
+			   
 			   totalCartCount++;
+			   
+			   
+			
+			   
+			
+               
 			   document.querySelector("#cart-items-number").querySelector("p").textContent=totalCartCount;
 			   
 		   }
@@ -62,7 +77,7 @@ let totalCartCount=0;
 	       
 	     itemCounts[itemName]++;
 	     totalCartCount++;
-	      itemElement.querySelector("#item-count").textContent=itemCounts[itemName];
+	     itemElement.querySelector("#item-count").textContent=itemCounts[itemName];
 	      document.querySelector("#cart-items-number").querySelector("p").textContent=totalCartCount;
 	      
 	   
@@ -78,6 +93,7 @@ let totalCartCount=0;
 	     
 	     itemCounts[itemName]--;
 	     totalCartCount--;
+	    
 	     if(itemCounts[itemName]<=0){
 			
 			itemCounts[itemName]=0;
@@ -100,6 +116,37 @@ let totalCartCount=0;
 	
 	    
    }
+   
+   function gotoCart(){
+	
+	  for (let value of Object.keys(itemNameArray)) {
+		
+          
+                queryString=queryString+","+itemNameArray[value];
+      }
+      
+      for (let value of Object.keys(itemCounts)) {
+		
+          
+                queryStringCount=queryStringCount+"&"+value+"="+itemCounts[value];
+      }
+	
+	    
+	     
+	     
+	     itemNameArray=null;
+	     console.log(queryStringCount)
+	     console.log(queryString)
+	     console.log(totalCartCount);
+	
+	   window.location.href="UserCart?itemNameArray="+queryString+"&totalCartCount="+totalCartCount+"&"+queryStringCount;
+	   
+   }
+   
+  
+   
+  
+    
  
  
  

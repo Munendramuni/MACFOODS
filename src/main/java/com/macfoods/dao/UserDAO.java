@@ -14,4 +14,5 @@ public interface UserDAO {
 	boolean isEmailExist(String email);
 	boolean isMobileExist(String mobile);
 	String getUsernameByEmail(String email);
+	int getUserIdByEmail(String email);
 }

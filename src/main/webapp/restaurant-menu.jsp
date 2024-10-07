@@ -4,6 +4,8 @@
     <%@ page import="java.util.ArrayList" %>
       <%@ page import="com.macfoods.dto.Menu" %>
       <%@ page import="com.macfoods.dao.UserDAO" %>
+      
+     
 <!DOCTYPE html>
 <html>
 <head>
@@ -156,6 +158,25 @@ border:none;
 
 }
 
+.go-to-cart{
+
+width: 250px;
+margin:50px auto;
+
+}
+
+.go-to-cart-btn{
+
+   bottom: 20px;
+	width: 250px;
+	color: green;
+	background-color: white;
+	border: 2px solid green ;
+	padding: 10px 20px;
+	
+	
+}
+
 
 
 
@@ -241,7 +262,7 @@ border:none;
    	  <div class="nav-icons">
    	  	
    	  	<img src="profile-icon.png">
-   	  	<img src="cart-icon.png">
+   	  	<a href="user-cart.jsp"><img src="cart-icon.png" ></a>
 
    	  </div>
    	 
@@ -289,7 +310,8 @@ border:none;
          	
          	<% for(Menu item:menu){%>
          	
-              <div class="item" data-item-name="<%=item.getItemName() %>">
+                
+                     <div class="item" data-item-name="<%=item.getItemName() %>">
 
               	<div class="details">
               		<h4><%=item.getItemName() %></h4>
@@ -315,6 +337,7 @@ border:none;
             
 
               </div>
+     
               
               <div class="popup-container" >
                   
@@ -349,7 +372,7 @@ border:none;
             
             
               
-              <%} %>
+          <%} %>
 
               
 
@@ -358,6 +381,19 @@ border:none;
          </div>
 
 
+   </section>
+   
+   <section class="go-to-cart">
+   
+   <%if(user!=null) {%>
+   
+  
+     <button class="go-to-cart-btn" onclick="gotoCart()">goto cart</button>
+    
+   
+   
+   <%} %>
+   
    </section>
    
    

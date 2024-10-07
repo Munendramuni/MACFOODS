@@ -223,4 +223,30 @@ public class UserDAOimpl implements UserDAO{
 		
 		return "";
 	}
+
+	@Override
+	public int getUserIdByEmail(String email) {
+    try {
+			
+	    	PreparedStatement pstmt=ConnectorFactory.
+	    			requestConnection().prepareStatement("select * from user where email=?");
+	    
+	      pstmt.setString(1, email);
+	      
+	      ResultSet res=pstmt.executeQuery();
+	      
+	      if(res.next()) {
+	          
+	    	  return  res.getInt(1);
+	      }
+	    	
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+		return 0;
+	}
+
 }
